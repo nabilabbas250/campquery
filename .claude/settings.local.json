@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(/Users/nabilabbas/git/campquery/venv/bin/pip list:*)",
+      "Bash(venv/bin/python data_setup.py)",
+      "Bash(source venv/bin/activate)",
+      "Bash(streamlit run:*)"
+    ]
+  }
+}
