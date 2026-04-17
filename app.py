@@ -3,6 +3,8 @@ import pandas as pd
 import anthropic
 import streamlit as st
 
+st.set_page_config(page_title="CampQuery", page_icon="🏕️")
+
 DB_PATH = "camp.db"
 
 SYSTEM_PROMPT = """You are a SQL expert. Given a SQLite database with these tables:
@@ -21,6 +23,52 @@ EXAMPLE_QUERIES = [
     "Which states send the most campers to accredited camps?",
     "Show campers at risk of not returning — low attendance, first year",
 ]
+
+st.markdown("""
+<style>
+/* Page background */
+html, body, [data-testid="stAppViewContainer"] {
+    background-color: #FAFAF8;
+}
+
+/* Buttons */
+div[data-testid="stButton"] > button,
+div[data-testid="stFormSubmitButton"] > button {
+    background-color: #2D6A4F !important;
+    color: white !important;
+    border: none !important;
+}
+div[data-testid="stButton"] > button:hover,
+div[data-testid="stFormSubmitButton"] > button:hover {
+    background-color: #F4A261 !important;
+    color: white !important;
+}
+
+/* Dataframe header row */
+[data-testid="stDataFrame"] th {
+    background-color: #2D6A4F !important;
+    color: white !important;
+}
+
+/* Sidebar section headers */
+.cq-sidebar-header {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #2D6A4F;
+    margin: 4px 0 10px 0;
+}
+
+/* Sidebar footer */
+.cq-sidebar-footer {
+    font-size: 12px;
+    color: #A0A8A1;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+</style>
+""", unsafe_allow_html=True)
 
 
 def run_query(sql: str) -> pd.DataFrame:
@@ -67,11 +115,61 @@ def handle_question(question: str):
         st.code(sql, language="sql")
 
 
+# ── Sidebar ───────────────────────────────────────────────────────────────────
+
+with st.sidebar:
+    st.markdown(
+        "CampQuery demonstrates how natural language querying can make camp management data "
+        "accessible to non-technical staff — directors, counselors, and operations teams who "
+        "need answers fast without knowing SQL."
+    )
+
+    st.divider()
+
+    st.markdown('<div class="cq-sidebar-header">About the Data</div>', unsafe_allow_html=True)
+    st.markdown("📁 150 camps, 500 campers, 1,100 enrollment records")
+    st.markdown(
+        "🏕️ Camp schema modeled after the ACA Find a Camp directory (acacamps.org) — "
+        "the largest database of accredited summer camps in the U.S."
+    )
+    st.markdown(
+        "🔒 Camper records are fully synthetic. Real camper-level data is not publicly "
+        "available due to youth privacy protections — this is standard practice in camp "
+        "management software."
+    )
+    st.markdown(
+        "📊 Data distributions reflect real-world camp patterns: 65% returning campers, "
+        "18% scholarship recipients, 60% ACA-accredited camps"
+    )
+
+    st.divider()
+
+    st.markdown('<div class="cq-sidebar-header">Why This Matters</div>', unsafe_allow_html=True)
+    st.markdown("⏱️ Directors spend hours pulling reports manually — natural language querying eliminates that bottleneck")
+    st.markdown("🎯 Non-technical staff get self-service access to data without SQL training")
+    st.markdown("🔍 Instant answers to operational questions: waivers, rosters, attendance, re-enrollment risk")
+    st.markdown("📈 Mirrors capabilities being built into modern camp management platforms like Campminder")
+
+    st.divider()
+
+    st.markdown('<div class="cq-sidebar-header">Built With</div>', unsafe_allow_html=True)
+    st.markdown("🤖 Claude AI (Anthropic) — natural language to SQL")
+    st.markdown("🐍 Python + Streamlit")
+    st.markdown("🗄️ SQLite")
+    st.markdown("📐 Schema reference: ACA Find a Camp directory")
+
+    st.divider()
+
+    st.markdown(
+        '<div class="cq-sidebar-footer">Built by Nabil Abbas · github.com/nabilabbas250/campquery</div>',
+        unsafe_allow_html=True,
+    )
+
 # ── Layout ────────────────────────────────────────────────────────────────────
 
-st.title("CampQuery")
+st.title("🏕️ CampQuery")
 st.subheader("Ask your camp data anything — powered by Claude AI")
-st.caption("Camp schema modeled after ACA Find a Camp directory | Camper records are synthetic")
+st.warning("⚠️ All camper records are fully synthetic and do not represent any real individuals. Camp schema is modeled after the ACA Find a Camp directory.")
 
 st.divider()
 
