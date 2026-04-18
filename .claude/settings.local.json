@@ -6,7 +6,8 @@
       "Bash(venv/bin/python data_setup.py)",
       "Bash(source venv/bin/activate)",
       "Bash(streamlit run:*)",
-      "Bash(venv/bin/python -c \"import ast; ast.parse\\(open\\('app.py'\\).read\\(\\)\\); print\\('Syntax OK'\\)\")"
+      "Bash(venv/bin/python -c \"import ast; ast.parse\\(open\\('app.py'\\).read\\(\\)\\); print\\('Syntax OK'\\)\")",
+      "Bash(venv/bin/python -c \"import ast; ast.parse\\(open\\('briefing.py'\\).read\\(\\)\\); print\\('Syntax OK'\\)\")"
     ]
   }
 }

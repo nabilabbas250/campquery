@@ -92,5 +92,10 @@ python data_setup.py
 streamlit run app.py
 ```
 
+## ☀️ Camp Director Daily Briefing
+AI-powered daily briefing tool for camp directors. Reads live operational data and generates a plain-English summary of what needs attention — campers to check in with, action items, activity performance. Includes SQL evidence panel and human feedback mechanism.
+
+**Live demo:** https://campquery-briefing.streamlit.app
+
 ## Built By
 Nabil Abbas · [LinkedIn](https://www.linkedin.com/in/nabil-abbas)
