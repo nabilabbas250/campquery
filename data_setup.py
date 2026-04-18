@@ -206,5 +206,4 @@ def main():
     print(f"  enrollments → {len(enrollments):>5} rows")
 
 
-if __name__ == "__main__":
-    main()
+main()
