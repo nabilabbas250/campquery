@@ -105,7 +105,7 @@ def handle_question(question: str):
         try:
             df = run_query(sql)
         except Exception as e:
-            st.error(f"Debug error: {str(e)}")
+            st.warning("I couldn't generate a valid query for that question. Try rephrasing it.")
             with st.expander("View generated SQL"):
                 st.code(sql, language="sql")
             return
