@@ -1,9 +1,14 @@
+import os
+import subprocess
 import sqlite3
 import pandas as pd
 import anthropic
 import streamlit as st
 
 st.set_page_config(page_title="CampQuery", page_icon="🏕️")
+
+if not os.path.exists("camp.db"):
+    subprocess.run(["python", "data_setup.py"], check=True)
 
 DB_PATH = "camp.db"
 
