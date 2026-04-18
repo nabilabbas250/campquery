@@ -26,11 +26,6 @@ EXAMPLE_QUERIES = [
 
 st.markdown("""
 <style>
-/* Page background */
-html, body, [data-testid="stAppViewContainer"] {
-    background-color: #FAFAF8;
-}
-
 /* Buttons */
 div[data-testid="stButton"] > button,
 div[data-testid="stFormSubmitButton"] > button {
@@ -60,10 +55,11 @@ div[data-testid="stFormSubmitButton"] > button:hover {
     margin: 4px 0 10px 0;
 }
 
-/* Sidebar footer */
+/* Sidebar footer — inherits theme text color, muted via opacity */
 .cq-sidebar-footer {
     font-size: 12px;
-    color: #A0A8A1;
+    color: inherit;
+    opacity: 0.5;
     margin-top: 8px;
     line-height: 1.5;
 }
@@ -169,7 +165,7 @@ with st.sidebar:
 
 st.title("🏕️ CampQuery")
 st.subheader("Ask your camp data anything — powered by Claude AI")
-st.warning("⚠️ All camper records are fully synthetic and do not represent any real individuals. Camp schema is modeled after the ACA Find a Camp directory.")
+st.info("⚠️ All camper records are fully synthetic and do not represent any real individuals. Camp schema is modeled after the ACA Find a Camp directory.")
 
 st.divider()
 
