@@ -4,7 +4,7 @@
 CampQuery lets non-technical users query summer camp data using plain English — no SQL required. Type a question, get an answer. Built to demonstrate how AI-powered natural language interfaces can make operational data accessible to camp directors, counselors, and operations staff.
 
 ## Live Demo
-[Add Streamlit Cloud link here]
+[Streamlit Demo link here](https://campquery.streamlit.app/)
 
 ## Example Queries
 - "Which campers haven't signed their waiver?"
